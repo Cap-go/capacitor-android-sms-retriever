@@ -1,6 +1,6 @@
 # @capgo/capacitor-android-sms-retriever
 
-<a href="https://capgo.app/"><img src="https://raw.githubusercontent.com/Cap-go/capgo/main/assets/capgo_banner.png" alt="Capgo - Instant updates for Capacitor" /></a>
+<a href="https://capgo.app/"><img src="https://capgo.app/readme-banner.svg?repo=Cap-go/capacitor-android-sms-retriever" alt="Capgo - Instant updates for Capacitor" /></a>
 
 <div align="center">
   <h2><a href="https://capgo.app/?ref=plugin_android_sms_retriever">Get instant updates for your app with Capgo</a></h2>
