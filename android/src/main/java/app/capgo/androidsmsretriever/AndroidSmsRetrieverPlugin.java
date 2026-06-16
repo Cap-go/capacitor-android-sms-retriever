@@ -25,7 +25,7 @@ public class AndroidSmsRetrieverPlugin extends Plugin {
     private static final String EVENT_SMS_ERROR = "smsRetrieverError";
     private static final String STATUS_DONE = "SMS_RETRIEVER_DONE";
 
-    private final String pluginVersion = "8.0.5";
+    private final String pluginVersion = "8.0.6";
     private AndroidSmsRetriever implementation;
     private ActivityResultLauncher<IntentSenderRequest> phoneNumberHintLauncher;
     private String pendingPhoneNumberCallId;
