@@ -4,7 +4,7 @@ import pkg from './package.json';
 
 const config: CapacitorConfig = {
   appId: 'app.capgo.androidsmsretriever.example',
-  appName: 'Plugin Template Example',
+  appName: '@capgo/capacitor-android-sms-retriever',
   webDir: 'dist',
   plugins: {
     SplashScreen: {
