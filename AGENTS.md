@@ -47,7 +47,7 @@ The plugin major version follows the Capacitor major version. This package start
 
 ## Common Pitfalls
 
-- Production and PR beta publishes use `npm stage publish`. Cap-go/automations approves the stage (2FA). Plugin CI only has the org `NPM_TOKEN`.
+- Production and PR beta publishes use `npm stage publish`. Plugin CI only has the org `NPM_TOKEN`.
 
 - Use Bun for every package command. Use `bunx` for package binaries.
 - Android builds target Java 21.
