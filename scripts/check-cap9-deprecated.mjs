@@ -47,11 +47,13 @@ const RULES = [
     id: "saveCall",
     pattern: /\bsaveCall\s*\(/,
     exts: [".java", ".kt", ".swift"],
+    ignoreLine: /\b(?:Bridge|bridge)\.saveCall\s*\(/,
   },
   {
     id: "getSavedCall",
     pattern: /\bgetSavedCall\s*\(/,
     exts: [".java", ".kt", ".swift"],
+    ignoreLine: /\b(?:Bridge|bridge)\.getSavedCall\s*\(/,
   },
   {
     id: "freeSavedCall",
@@ -62,6 +64,7 @@ const RULES = [
     id: "releaseCall",
     pattern: /\breleaseCall\s*\(/,
     exts: [".java", ".kt", ".swift"],
+    ignoreLine: /\b(?:Bridge|bridge)\.releaseCall\s*\(/,
   },
   {
     id: "pluginRequestPermission",
