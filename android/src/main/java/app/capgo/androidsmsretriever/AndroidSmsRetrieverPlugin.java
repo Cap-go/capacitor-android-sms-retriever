@@ -28,7 +28,7 @@ public class AndroidSmsRetrieverPlugin extends Plugin {
     private final String pluginVersion = "8.0.11";
     private AndroidSmsRetriever implementation;
     private ActivityResultLauncher<IntentSenderRequest> phoneNumberHintLauncher;
-    private String pendingPhoneNumberCallId;
+    private PluginCall pendingPhoneNumberCall;
 
     @Override
     public void load() {
@@ -121,7 +121,7 @@ public class AndroidSmsRetrieverPlugin extends Plugin {
             return;
         }
 
-        if (pendingPhoneNumberCallId != null) {
+        if (pendingPhoneNumberCall != null) {
             call.reject("Another Phone Number Hint request is already in progress.");
             return;
         }
@@ -137,13 +137,13 @@ public class AndroidSmsRetrieverPlugin extends Plugin {
             .getPhoneNumberHintIntent(request)
             .addOnSuccessListener((pendingIntent) -> {
                 try {
-                    bridge.saveCall(call);
-                    pendingPhoneNumberCallId = call.getCallbackId();
+                    call.setKeepAlive(true);
+                    pendingPhoneNumberCall = call;
                     IntentSenderRequest intentSenderRequest = new IntentSenderRequest.Builder(pendingIntent.getIntentSender()).build();
                     phoneNumberHintLauncher.launch(intentSenderRequest);
                 } catch (Exception exception) {
-                    pendingPhoneNumberCallId = null;
-                    bridge.releaseCall(call);
+                    pendingPhoneNumberCall = null;
+                    call.setKeepAlive(false);
                     call.reject(resolveMessage("Unable to launch Phone Number Hint.", exception), exception);
                 }
             })
@@ -168,7 +168,7 @@ public class AndroidSmsRetrieverPlugin extends Plugin {
     private void handlePhoneNumberHintResult(ActivityResult result) {
         PluginCall call = getPendingPhoneNumberCall();
         if (call == null) {
-            pendingPhoneNumberCallId = null;
+            pendingPhoneNumberCall = null;
             return;
         }
 
@@ -202,16 +202,13 @@ public class AndroidSmsRetrieverPlugin extends Plugin {
     }
 
     private PluginCall getPendingPhoneNumberCall() {
-        if (pendingPhoneNumberCallId == null) {
-            return null;
-        }
-        return bridge.getSavedCall(pendingPhoneNumberCallId);
+        return pendingPhoneNumberCall;
     }
 
     private void releasePendingPhoneNumberCall(PluginCall call) {
-        if (pendingPhoneNumberCallId != null) {
-            bridge.releaseCall(call);
-            pendingPhoneNumberCallId = null;
+        if (pendingPhoneNumberCall != null) {
+            call.setKeepAlive(false);
+            pendingPhoneNumberCall = null;
         }
     }
 
