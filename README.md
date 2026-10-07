@@ -1,13 +1,28 @@
 # @capgo/capacitor-android-sms-retriever
 
-<a href="https://capgo.app/"><img src="https://capgo.app/readme-banner.svg?repo=Cap-go/capacitor-android-sms-retriever" alt="Capgo - Instant updates for Capacitor" /></a>
+Read one-time codes from SMS on Android without the SMS permission, using Google Play services SMS Retriever, and let users pick their phone number with Phone Number Hint. Smoother sign-in and verification flows.
+
+<a href="https://capgo.app/?ref=plugin_android_sms_retriever"><img src="https://capgo.app/readme-banner.svg?repo=Cap-go/capacitor-android-sms-retriever" alt="Capgo - Instant updates for Capacitor" /></a>
 
 <div align="center">
-  <h2><a href="https://capgo.app/?ref=plugin_android_sms_retriever">Get instant updates for your app with Capgo</a></h2>
-  <h2><a href="https://capgo.app/consulting/?ref=plugin_android_sms_retriever">Missing a feature? We can build the plugin for you</a></h2>
+  <p><b>Capgo</b>: open-source live updates for Ionic and Capacitor apps. Ship OTA fixes and features instantly, without waiting for app store review.</p>
+  <h2><a href="https://capgo.app/register/?ref=plugin_android_sms_retriever">➡️ Get started for free</a></h2>
+  <p>14-day unlimited free trial. No credit card required</p>
+  <p><a href="https://capgo.app/consulting/?ref=plugin_android_sms_retriever">Missing a feature? We'll build the plugin for you 💪</a></p>
 </div>
 
-Android-only Capacitor plugin for Google Play services SMS Retriever and Phone Number Hint APIs.
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Cap-go/capacitor-android-sms-retriever/main/assets/github-social-preview.png" alt="@capgo/capacitor-android-sms-retriever for Capacitor apps" width="300" />
+</p>
+
+## Key features
+
+- **SMS Retriever**: `startWatch()` waits for one verification SMS and emits `smsReceived`, with `smsRetrieverTimeout` and `smsRetrieverError` events.
+- **No SMS permission**: Google Play services delivers the matching message, so you do not request `READ_SMS`.
+- **App hash**: `getHashString()` returns the 11-character hash your server adds to the SMS.
+- **Phone Number Hint**: `getPhoneNumber()` shows the system picker and returns the selected SIM number.
+- **Stop anytime**: `stopWatch()` cancels the active watch.
+- **Platforms**: Android. Android only. iOS and web are not supported.
 
 ## Install
 
