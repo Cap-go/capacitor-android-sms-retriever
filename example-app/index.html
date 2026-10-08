@@ -2,32 +2,84 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-
-
     <meta
       name="viewport"
       content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
-<title>@capgo/capacitor-android-sms-retriever</title>
+    <title>Android SMS Retriever Demo</title>
     <link rel="stylesheet" href="/src/style.css" />
   </head>
   <body>
-    <main class="container">
-      <h1>@capgo/capacitor-android-sms-retriever</h1>
-      <p class="lead">Quickly validate the template plugin wiring.</p>
+    <div class="app">
+      <header class="app-header">
+        <img class="app-logo" src="/assets/capgo-icon.svg" width="40" height="40" alt="Capgo" />
+        <div class="app-header-text">
+          <h1>SMS Retriever</h1>
+          <p class="app-subtitle">@capgo/capacitor-android-sms-retriever</p>
+        </div>
+        <span id="watch-chip" class="chip chip-idle" role="status">Idle</span>
+      </header>
 
-      <label for="echo-value">Echo value</label>
-      <input id="echo-value" type="text" value="Hello from example app" />
+      <p class="platform-note">
+        <strong>Android only.</strong>
+        SMS Retriever and Phone Number Hint require a native Android build. Web and iOS show API errors here for
+        wiring checks.
+      </p>
 
-      <div class="actions">
-        <button id="run-echo">Run echo</button>
-        <button id="get-version">Get plugin version</button>
-      </div>
+      <section class="card" aria-labelledby="hash-heading">
+        <h2 id="hash-heading">App signature hash</h2>
+        <p class="card-hint">Append this 11-character hash to verification SMS messages for your signing key.</p>
+        <div class="hash-row">
+          <code id="hash-value" class="mono-out">Not loaded</code>
+          <button type="button" id="btn-hash" class="btn btn-primary">Get hash</button>
+        </div>
+      </section>
 
-      <pre id="plugin-output">Press a button to run an action.</pre>
-    </main>
+      <section class="card" aria-labelledby="watch-heading">
+        <h2 id="watch-heading">SMS Retriever</h2>
+        <p class="card-hint">Start listening for one verification SMS (5 minute timeout, no SMS permission).</p>
+        <div class="actions">
+          <button type="button" id="btn-start" class="btn btn-primary">Start watch</button>
+          <button type="button" id="btn-stop" class="btn btn-secondary">Stop watch</button>
+        </div>
+        <p id="watch-status" class="result-line">Last action: none</p>
+      </section>
+
+      <section class="card" aria-labelledby="otp-heading">
+        <h2 id="otp-heading">Received SMS / OTP</h2>
+        <pre id="sms-pane" class="pane mono-out">Waiting for smsReceived event after start watch.</pre>
+      </section>
+
+      <section class="card" aria-labelledby="phone-heading">
+        <h2 id="phone-heading">Phone number hint</h2>
+        <p class="card-hint">Opens Android Phone Number Hint UI on a supported device.</p>
+        <div class="phone-row">
+          <input
+            id="phone-display"
+            type="text"
+            readonly
+            value="No number selected"
+            aria-label="Selected phone number"
+          />
+          <button type="button" id="btn-phone" class="btn btn-primary">Get phone number</button>
+        </div>
+      </section>
+
+      <section class="card card-compact" aria-labelledby="meta-heading">
+        <h2 id="meta-heading">Plugin</h2>
+        <div class="actions">
+          <button type="button" id="btn-version" class="btn btn-secondary">Get plugin version</button>
+        </div>
+        <p id="version-line" class="result-line">Version: unknown</p>
+      </section>
+
+      <section class="card" aria-labelledby="log-heading">
+        <h2 id="log-heading">Activity log</h2>
+        <pre id="activity-log" class="pane pane-log mono-out"></pre>
+      </section>
+    </div>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
