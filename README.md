@@ -2,7 +2,7 @@
 
 Read one-time codes from SMS on Android without the SMS permission, using Google Play services SMS Retriever, and let users pick their phone number with Phone Number Hint. Smoother sign-in and verification flows.
 
-<a href="https://capgo.app/?ref=plugin_android_sms_retriever"><img src="https://capgo.app/readme-banner.svg?repo=Cap-go/capacitor-android-sms-retriever" alt="Capgo - Instant updates for Capacitor" /></a>
+<a href="https://capgo.app/?ref=plugin_android_sms_retriever"><img src="https://capgo.app/readme-banner.svg?repo=Cap-go/capacitor-android-sms-retriever" alt="Capgo - Build Capacitor apps with AI, ship updates instantly" /></a>
 
 <div align="center">
   <p><b>Capgo</b>: push fixes to your Capacitor users in minutes, build signed iOS and Android apps without a Mac, and roll back in one click.</p>
@@ -10,6 +10,8 @@ Read one-time codes from SMS on Android without the SMS permission, using Google
   <p>14-day unlimited free trial. No credit card required</p>
   <p><a href="https://capgo.app/consulting/?ref=plugin_android_sms_retriever">Missing a feature? We'll build the plugin for you 💪</a></p>
 </div>
+
+> 🤖 **Building with an AI coding agent?** Install [Capgo skills](https://capgo.app/skills/?ref=plugin_android_sms_retriever) so Claude Code, Codex, Cursor, Copilot, or Gemini CLI know how to install and use `@capgo/capacitor-android-sms-retriever` in your Capacitor app: `npx skills add Cap-go/capgo-skills`. Then ask your agent: *"Add @capgo/capacitor-android-sms-retriever to my Capacitor app and wire it up."* [Agent setup guides](https://capgo.app/agents/?ref=plugin_android_sms_retriever) · [Hosted MCP](https://capgo.app/docs/ai/mcp/?ref=plugin_android_sms_retriever)
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/Cap-go/capacitor-android-sms-retriever/main/assets/github-social-preview.png" alt="@capgo/capacitor-android-sms-retriever for Capacitor apps" width="300" />
